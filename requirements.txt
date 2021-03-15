@@ -1,0 +1,16 @@
+APScheduler @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/aa/a0/9f/05b40e3f2fe1ab07745a38631ff8fd6ea60ae797a4ebee49ca87c9a2e6/APScheduler-3.6.3-py2.py3-none-any.whl
+beautifulsoup4 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/d7/4b/c2/1a65d7699a83c83aaec6fa35b97cb59760569be3e24f903ae4b55ac3a5/beautifulsoup4-4.9.3-py3-none-any.whl
+bs4 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/5e/4e/ee/d3b8d57b7670967d19f8b6427a9d76c440ec50935e64f5c31a43d46620/bs4-0.0.1.tar.gz
+certifi @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/db/9d/0a/3683163af3bb7fe252dfa5f98aaa627b305ffe603bfe0bb65ac3224c7a/certifi-2020.12.5-py2.py3-none-any.whl
+chardet @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/f0/e1/66/f8ced421461f1dda06ea89af6ac51a22cf72ff0595f329808634559b2b/chardet-4.0.0-py2.py3-none-any.whl
+feedparser @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/6f/43/5c/4016e87552686c61dfd30156a1f122874551d35937f2c08424ea23e225/feedparser-6.0.2-py3-none-any.whl
+idna @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/71/d9/bc/a8481f6ac8b5d0ecc0fbd34aca906ee68d1757f24fefbd0f4294c0c9d2/idna-2.10-py2.py3-none-any.whl
+python-telegram-bot @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/e9/47/3b/e1386aa1281d3e3b2e10d27d38dbc9c9bd1527a2b3f358330cd65bf8e6/python_telegram_bot-13.3-py3-none-any.whl
+pytz @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/0c/d0/94/bbd2fee71be292862261e85cefb2231b1df628c7a0e5cb0170d8304963/pytz-2021.1-py2.py3-none-any.whl
+requests @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/f2/13/b8/cc7ac8d0aa2630507c04c2c0e72307bed4ee7e2c92d7c3d97a5d61e74e/requests-2.25.1-py2.py3-none-any.whl
+sgmllib3k @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/57/4a/30/6aac357e921ae004586938e80f748b9e2671b2d9c83e3393a4c2ffbe30/sgmllib3k-1.0.0.tar.gz
+six @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/e3/96/48/99c14ba5c6276fbf4dc2e216553590ec97b52e685863f73e39550418c5/six-1.15.0-py2.py3-none-any.whl
+soupsieve @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/8b/83/47/3dbaefd68506aeca6fee4b1c6fb2ba4dfc86206ba8d33307551ce951f5/soupsieve-2.2-py3-none-any.whl
+tornado @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/90/8c/c2/14a2bfd9eab1cd3150bb49b8a3a8256440d8e78351e30412b66fc2728c/tornado-6.1.tar.gz
+tzlocal @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/0e/98/0e/1f70eb43e746780c4a7ac87cbed6bfef1f5939490b198def485b4b268a/tzlocal-2.1-py2.py3-none-any.whl
+urllib3 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/d3/15/58/ba0060fd151d504925968671fc1e2ef7dc6129dd72b1a05b5c60394919/urllib3-1.26.3-py2.py3-none-any.whl
