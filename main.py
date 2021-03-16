@@ -79,7 +79,7 @@ def scrap_board(
             # 최신 게시글이 있는지 확인
             if num == recent_no:
                 # print(f'latest={str(latest_no)}, num={str(num)}, recent={str(recent_no)}')
-                print(f'{scrap_count}개의 게시글을 가져왔습니다.')
+                print(f'{title_scrap} / {scrap_count}개의 게시글을 가져왔습니다.')
                 with open(latest_file, 'w') as fp:
                     try:
                         fp.write(str(latest_no))
@@ -94,7 +94,7 @@ def scrap_board(
             author = tds[2].text
             date = tds[3].text
 
-            message = title_scrap + '\n\[' + str(num) + '] ' + title + '\n' + author + ' ' + date + '\n[More...](' + link_m + ')'
+            message = '<b>' + title_scrap + '</b>\n\[' + str(num) + '] ' + title + '\n' + author + ' ' + date + '\n[More...](' + link_m + ')'
             message.replace('&', '%26')  # & 문자를 UTF-8로 변경
             print(f'[{str(num)}]{date}/{title}({author})')
             # 시간(번호)순으로 할 때 역순으로 출력해야 하지만 주기적으로 실행하면 게시글을 많이 가져오지 않으므로 그냥 출력
