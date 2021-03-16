@@ -1,16 +1,86 @@
-APScheduler @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/aa/a0/9f/05b40e3f2fe1ab07745a38631ff8fd6ea60ae797a4ebee49ca87c9a2e6/APScheduler-3.6.3-py2.py3-none-any.whl
-beautifulsoup4 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/d7/4b/c2/1a65d7699a83c83aaec6fa35b97cb59760569be3e24f903ae4b55ac3a5/beautifulsoup4-4.9.3-py3-none-any.whl
-bs4 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/5e/4e/ee/d3b8d57b7670967d19f8b6427a9d76c440ec50935e64f5c31a43d46620/bs4-0.0.1.tar.gz
-certifi @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/db/9d/0a/3683163af3bb7fe252dfa5f98aaa627b305ffe603bfe0bb65ac3224c7a/certifi-2020.12.5-py2.py3-none-any.whl
-chardet @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/f0/e1/66/f8ced421461f1dda06ea89af6ac51a22cf72ff0595f329808634559b2b/chardet-4.0.0-py2.py3-none-any.whl
-feedparser @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/6f/43/5c/4016e87552686c61dfd30156a1f122874551d35937f2c08424ea23e225/feedparser-6.0.2-py3-none-any.whl
-idna @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/71/d9/bc/a8481f6ac8b5d0ecc0fbd34aca906ee68d1757f24fefbd0f4294c0c9d2/idna-2.10-py2.py3-none-any.whl
-python-telegram-bot @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/e9/47/3b/e1386aa1281d3e3b2e10d27d38dbc9c9bd1527a2b3f358330cd65bf8e6/python_telegram_bot-13.3-py3-none-any.whl
-pytz @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/0c/d0/94/bbd2fee71be292862261e85cefb2231b1df628c7a0e5cb0170d8304963/pytz-2021.1-py2.py3-none-any.whl
-requests @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/f2/13/b8/cc7ac8d0aa2630507c04c2c0e72307bed4ee7e2c92d7c3d97a5d61e74e/requests-2.25.1-py2.py3-none-any.whl
-sgmllib3k @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/57/4a/30/6aac357e921ae004586938e80f748b9e2671b2d9c83e3393a4c2ffbe30/sgmllib3k-1.0.0.tar.gz
-six @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/e3/96/48/99c14ba5c6276fbf4dc2e216553590ec97b52e685863f73e39550418c5/six-1.15.0-py2.py3-none-any.whl
-soupsieve @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/8b/83/47/3dbaefd68506aeca6fee4b1c6fb2ba4dfc86206ba8d33307551ce951f5/soupsieve-2.2-py3-none-any.whl
-tornado @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/90/8c/c2/14a2bfd9eab1cd3150bb49b8a3a8256440d8e78351e30412b66fc2728c/tornado-6.1.tar.gz
-tzlocal @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/0e/98/0e/1f70eb43e746780c4a7ac87cbed6bfef1f5939490b198def485b4b268a/tzlocal-2.1-py2.py3-none-any.whl
-urllib3 @ file:///Users/inspi/Library/Caches/pypoetry/artifacts/d3/15/58/ba0060fd151d504925968671fc1e2ef7dc6129dd72b1a05b5c60394919/urllib3-1.26.3-py2.py3-none-any.whl
+apscheduler==3.6.3; python_version >= "3.6" \
+    --hash=sha256:e8b1ecdb4c7cb2818913f766d5898183c7cb8936680710a4d3a966e02262e526 \
+    --hash=sha256:3bb5229eed6fbbdafc13ce962712ae66e175aa214c69bed35a06bffcf0c5e244
+beautifulsoup4==4.9.3 \
+    --hash=sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35 \
+    --hash=sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666 \
+    --hash=sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25
+bs4==0.0.1 \
+    --hash=sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a
+certifi==2020.12.5 \
+    --hash=sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830 \
+    --hash=sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c
+chardet==4.0.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.5.0") \
+    --hash=sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5 \
+    --hash=sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa
+feedparser==6.0.2; python_version >= "3.6" \
+    --hash=sha256:f596c4b34fb3e2dc7e6ac3a8191603841e8d5d267210064e94d4238737452ddd \
+    --hash=sha256:1b00a105425f492f3954fd346e5b524ca9cef3a4bbf95b8809470e9857aa1074
+idna==2.10; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" \
+    --hash=sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0 \
+    --hash=sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6
+python-telegram-bot==13.4.1; python_version >= "3.6" \
+    --hash=sha256:4c1fdc3dab192bf1f754ccd0692511976b38e2c6ad75010e30844a19c0193c90 \
+    --hash=sha256:467b0f149bf4d0b9b638530c9a887dd0d6e64da1d5603cfe6eee839671ca1496
+pytz==2021.1 \
+    --hash=sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798 \
+    --hash=sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da
+requests==2.25.1; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.5.0") \
+    --hash=sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e \
+    --hash=sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804
+sgmllib3k==1.0.0 \
+    --hash=sha256:7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9
+six==1.15.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.3.0") \
+    --hash=sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced \
+    --hash=sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259
+soupsieve==2.2; python_version >= "3.6" \
+    --hash=sha256:d3a5ea5b350423f47d07639f74475afedad48cf41c0ad7a82ca13a3928af34f6 \
+    --hash=sha256:407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd
+tornado==6.1; python_version >= "3.6" \
+    --hash=sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32 \
+    --hash=sha256:0d321a39c36e5f2c4ff12b4ed58d41390460f798422c4504e09eb5678e09998c \
+    --hash=sha256:9de9e5188a782be6b1ce866e8a51bc76a0fbaa0e16613823fc38e4fc2556ad05 \
+    --hash=sha256:61b32d06ae8a036a6607805e6720ef00a3c98207038444ba7fd3d169cd998910 \
+    --hash=sha256:3e63498f680547ed24d2c71e6497f24bca791aca2fe116dbc2bd0ac7f191691b \
+    --hash=sha256:6c77c9937962577a6a76917845d06af6ab9197702a42e1346d8ae2e76b5e3675 \
+    --hash=sha256:6286efab1ed6e74b7028327365cf7346b1d777d63ab30e21a0f4d5b275fc17d5 \
+    --hash=sha256:fa2ba70284fa42c2a5ecb35e322e68823288a4251f9ba9cc77be04ae15eada68 \
+    --hash=sha256:0a00ff4561e2929a2c37ce706cb8233b7907e0cdc22eab98888aca5dd3775feb \
+    --hash=sha256:748290bf9112b581c525e6e6d3820621ff020ed95af6f17fedef416b27ed564c \
+    --hash=sha256:e385b637ac3acaae8022e7e47dfa7b83d3620e432e3ecb9a3f7f58f150e50921 \
+    --hash=sha256:25ad220258349a12ae87ede08a7b04aca51237721f63b1808d39bdb4b2164558 \
+    --hash=sha256:65d98939f1a2e74b58839f8c4dab3b6b3c1ce84972ae712be02845e65391ac7c \
+    --hash=sha256:e519d64089b0876c7b467274468709dadf11e41d65f63bba207e04217f47c085 \
+    --hash=sha256:b87936fd2c317b6ee08a5741ea06b9d11a6074ef4cc42e031bc6403f82a32575 \
+    --hash=sha256:cc0ee35043162abbf717b7df924597ade8e5395e7b66d18270116f8745ceb795 \
+    --hash=sha256:7250a3fa399f08ec9cb3f7b1b987955d17e044f1ade821b32e5f435130250d7f \
+    --hash=sha256:ed3ad863b1b40cd1d4bd21e7498329ccaece75db5a5bf58cd3c9f130843e7102 \
+    --hash=sha256:dcef026f608f678c118779cd6591c8af6e9b4155c44e0d1bc0c87c036fb8c8c4 \
+    --hash=sha256:70dec29e8ac485dbf57481baee40781c63e381bebea080991893cd297742b8fd \
+    --hash=sha256:d3f7594930c423fd9f5d1a76bee85a2c36fd8b4b16921cae7e965f22575e9c01 \
+    --hash=sha256:3447475585bae2e77ecb832fc0300c3695516a47d46cefa0528181a34c5b9d3d \
+    --hash=sha256:e7229e60ac41a1202444497ddde70a48d33909e484f96eb0da9baf8dc68541df \
+    --hash=sha256:cb5ec8eead331e3bb4ce8066cf06d2dfef1bfb1b2a73082dfe8a161301b76e37 \
+    --hash=sha256:20241b3cb4f425e971cb0a8e4ffc9b0a861530ae3c52f2b0434e6c1b57e9fd95 \
+    --hash=sha256:c77da1263aa361938476f04c4b6c8916001b90b2c2fdd92d8d535e1af48fba5a \
+    --hash=sha256:fba85b6cd9c39be262fcd23865652920832b61583de2a2ca907dbd8e8a8c81e5 \
+    --hash=sha256:1e8225a1070cd8eec59a996c43229fe8f95689cb16e552d130b9793cb570a288 \
+    --hash=sha256:d14d30e7f46a0476efb0deb5b61343b1526f73ebb5ed84f23dc794bdb88f9d9f \
+    --hash=sha256:8f959b26f2634a091bb42241c3ed8d3cedb506e7c27b8dd5c7b9f745318ddbb6 \
+    --hash=sha256:34ca2dac9e4d7afb0bed4677512e36a52f09caa6fded70b4e3e1c89dbd92c326 \
+    --hash=sha256:6196a5c39286cc37c024cd78834fb9345e464525d8991c21e908cc046d1cc02c \
+    --hash=sha256:f0ba29bafd8e7e22920567ce0d232c26d4d47c8b5cf4ed7b562b5db39fa199c5 \
+    --hash=sha256:33892118b165401f291070100d6d09359ca74addda679b60390b09f8ef325ffe \
+    --hash=sha256:7da13da6f985aab7f6f28debab00c67ff9cbacd588e8477034c0652ac141feea \
+    --hash=sha256:e0791ac58d91ac58f694d8d2957884df8e4e2f6687cdf367ef7eb7497f79eaa2 \
+    --hash=sha256:66324e4e1beede9ac79e60f88de548da58b1f8ab4b2f1354d8375774f997e6c0 \
+    --hash=sha256:a48900ecea1cbb71b8c71c620dee15b62f85f7c14189bdeee54966fbd9a0c5bd \
+    --hash=sha256:d3d20ea5782ba63ed13bc2b8c291a053c8d807a8fa927d941bd718468f7b950c \
+    --hash=sha256:548430be2740e327b3fe0201abe471f314741efcb0067ec4f2d7dcfb4825f3e4 \
+    --hash=sha256:33c6e81d7bd55b468d2e793517c909b139960b6c790a60b7991b9b6b76fb9791
+tzlocal==2.1; python_version >= "3.6" \
+    --hash=sha256:e2cb6c6b5b604af38597403e9852872d7f534962ae2954c7f35efcb1ccacf4a4 \
+    --hash=sha256:643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44
+urllib3==1.26.4; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version < "4" \
+    --hash=sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df \
+    --hash=sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937
