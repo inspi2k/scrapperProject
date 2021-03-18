@@ -122,6 +122,8 @@ def scrap_board(
 
 @sched.scheduled_job('interval', minutes=60)
 def timed_job():
+    global bot
+
     # print("Testing interval scheduled job")
 
     # 전주시 새소식
@@ -134,7 +136,7 @@ def timed_job():
     ]
     scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
 
-    # 전주시 유관기
+    # 전주시 유관기관 소식
     url_jeonju_noti = [
         '/list.9is?boardUid=9be517a74f8dee91014f90f516c906f9&page=',
         '전주시 유관기관 소식',
@@ -144,7 +146,8 @@ def timed_job():
     ]
     scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
 
-    now = datetime.now()
+    # 현재시간 구하기
+    now = datetime.datetime.now()
     nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
     message = f'수행중 {nowDatetime}'
     bot.sendMessage(bot_channel, message)
