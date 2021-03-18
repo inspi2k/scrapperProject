@@ -97,7 +97,7 @@ def scrap_board(
             author = tds[2].text
             date = tds[3].text
 
-            message = '<b>' + title_scrap + '</b>\n\[' + str(num) + '] ' + title + '\n' + author + ' ' + date + '\n[More...](' + link_m + ')'
+            message = '#' + title_scrap + '\n' + str(num) + '. ' + title + '\n*' + author + ' ' + date + '*\n<' + link_m + '/>'
             message.replace('&', '%26')  # & 문자를 UTF-8로 변경
             print(f'[{str(num)}]{date}/{title}({author})')
             # 시간(번호)순으로 할 때 역순으로 출력해야 하지만 주기적으로 실행하면 게시글을 많이 가져오지 않으므로 그냥 출력
@@ -118,7 +118,7 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
-@sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=60)
 def timed_job():
     # print("Testing interval scheduled job")
 
