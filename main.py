@@ -120,7 +120,26 @@ def scrap_board(
 
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
-    print("Testing interval scheduled job")
+    # print("Testing interval scheduled job")
+
+    url_jeonju_noti = [
+        '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
+        '전주시 새소식',
+        'jeonju_noti',
+        'tstyle MT10',
+        'http://www.jeonju.go.kr/planweb/board'
+    ]
+    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
+
+    url_jeonju_noti = [
+        '/list.9is?boardUid=9be517a74f8dee91014f90f516c906f9&page=',
+        '전주시 유관기관 소식',
+        'jeonju_ref',
+        'tstyle MT10',
+        'http://www.jeonju.go.kr/planweb/board'
+    ]
+    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -141,22 +160,5 @@ if __name__ == '__main__':
         if bot_token == '' or bot_channel == '':
             print('Check token or channel information.')
             exit(1)
+
     sched.start()
-
-    url_jeonju_noti = [
-        '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
-        '전주시 새소식',
-        'jeonju_noti',
-        'tstyle MT10',
-        'http://www.jeonju.go.kr/planweb/board'
-    ]
-    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
-
-    url_jeonju_noti = [
-        '/list.9is?boardUid=9be517a74f8dee91014f90f516c906f9&page=',
-        '전주시 유관기관 소식',
-        'jeonju_ref',
-        'tstyle MT10',
-        'http://www.jeonju.go.kr/planweb/board'
-    ]
-    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
