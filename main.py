@@ -3,7 +3,10 @@ from bs4 import BeautifulSoup
 import os.path
 import telegram
 from time import sleep
+from apscheduler.schedulers.blocking import BlockingScheduler
 
+logging.basicConfig()
+sched = BlockingScheduler()
 
 # 전주시청 게시판 스크래핑
 def scrap_board(
@@ -115,6 +118,9 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
+@sched.scheduled_job('interval', minutes=1)
+def timed_job():
+    print("Testing interval scheduled job")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -135,6 +141,7 @@ if __name__ == '__main__':
         if bot_token == '' or bot_channel == '':
             print('Check token or channel information.')
             exit(1)
+    sched.start()
 
     url_jeonju_noti = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
