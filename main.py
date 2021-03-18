@@ -5,7 +5,7 @@ import telegram
 from time import sleep
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-logging.basicConfig()
+# logging.basicConfig()
 sched = BlockingScheduler()
 
 # 전주시청 게시판 스크래핑
