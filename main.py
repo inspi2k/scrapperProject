@@ -21,25 +21,18 @@ def scrap_board(
     global bot_channel
     global bot
 
-    # 저장된 파일이 없어서 처음부터 실행할 때, 파일은 있으나 오류가 발생하여 중간에서부터 읽어올 때
     # 이중반복문(while-페이지 넘어가서 계속 스크래핑 수행)을 빠져나오기 위한 체크 변수
     recent_break = False
 
     # 최근 게시물 번호를 file-based 에서 heroku config vars 로 변경
     config_vars_latest = 'LATEST_' + file_scrap.upper()
-    latest_file = 'latest_' + file_scrap
-
+    latest_no = 0
     try:
-        latest_no = int(os.environ.get(config_vars_latest))
+        latest_no = os.environ.get(config_vars_latest)
     except KeyError:
-        latest_no = 0
-        recent_break = True
+        recent_break = True  # 처음 실행될 때는 1페이지만 읽어오고, 환경변수 세팅함
         print(f'Setting config var - {config_vars_latest}')
         os.system(f'heroku config:set {config_vars_latest}=0')
-    except ValueError:
-        latest_no = 0
-        recent_break = True
-        print(f'ValueError on config var - {config_vars_latest}')
 
     recent_no = latest_no  # 최신 게시글 번호를 저장하기 위해 저장
     scrap_count = 0  # 스크래핑 해 온 게시글 수
