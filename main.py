@@ -111,7 +111,7 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
-@sched.scheduled_job('interval', minutes=60)
+@sched.scheduled_job('interval', minutes=1)
 def timed_job():
     global bot
 
