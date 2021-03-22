@@ -32,7 +32,7 @@ def scrap_board(
 
     try:
         latest_no = int(os.environ.get(config_vars_latest))
-    except KeyError:
+    except (KeyError, TypeError):
         recent_break = True  # 처음 실행될 때는 1페이지만 읽어오고, 환경변수 세팅함
         print(f'Setting config var - {config_vars_latest}')
         os.system(f'heroku config:set {config_vars_latest}=0')
