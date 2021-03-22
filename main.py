@@ -25,26 +25,21 @@ def scrap_board(
     # 이중반복문(while-페이지 넘어가서 계속 스크래핑 수행)을 빠져나오기 위한 체크 변수
     recent_break = False
 
+    # 최근 게시물 번호를 file-based 에서 heroku config vars 로 변경
+    config_vars_latest = 'LATEST_' + file_scrap.upper()
     latest_file = 'latest_' + file_scrap
-    if not os.path.exists(latest_file):
+
+    try:
+        latest_no = int(os.environ.get(config_vars_latest))
+    except KeyError:
         latest_no = 0
         recent_break = True
-        # print('The latest file does not exist. The file is created.')
-        # print(f'latest_no = {latest_no}')
-        with open(latest_file, 'w') as fp:
-            fp.write(str(latest_no))
-    else:
-        # print('The latest file exists')
-        with open(latest_file, 'r') as fp:
-            try:
-                latest_no = int(fp.readline().strip())
-                # print('readline() was executed')
-                # print(f'latest_no = {latest_no}')
-            except ValueError:
-                latest_no = 0
-                recent_break = True
-                # print('Error detected in readline()')
-                # print(f'latest_no = {latest_no}')
+        print(f'Setting config var - {config_vars_latest}')
+        os.system(f'heroku config:set {config_vars_latest}=0')
+    except ValueError:
+        latest_no = 0
+        recent_break = True
+        print(f'ValueError on config var - {config_vars_latest}')
 
     recent_no = latest_no  # 최신 게시글 번호를 저장하기 위해 저장
     scrap_count = 0  # 스크래핑 해 온 게시글 수
@@ -85,12 +80,8 @@ def scrap_board(
             if num == recent_no:
                 # print(f'latest={str(latest_no)}, num={str(num)}, recent={str(recent_no)}')
                 print(f'{title_scrap} / {scrap_count}개의 게시글을 가져왔습니다.')
-                with open(latest_file, 'w') as fp:
-                    try:
-                        fp.write(str(latest_no))
-                    except Exception as ex:
-                        print('..Error: ' + str(ex))
-                        exit(1)
+                # file-based 에서 환경변수 config var로 변경
+                os.environ[config_vars_latest] = latest_no
                 recent_break = True
                 break
 
@@ -127,24 +118,24 @@ def timed_job():
     # print("Testing interval scheduled job")
 
     # 전주시 새소식
-    url_jeonju_noti = [
+    url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
         '전주시 새소식',
         'jeonju_noti',
         'tstyle MT10',
         'http://www.jeonju.go.kr/planweb/board'
     ]
-    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
+    scrap_board(url_jeonju[0], url_jeonju[1], url_jeonju[2], url_jeonju[3])
 
     # 전주시 유관기관 소식
-    url_jeonju_noti = [
+    url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90f516c906f9&page=',
         '전주시 유관기관 소식',
         'jeonju_ref',
         'tstyle MT10',
         'http://www.jeonju.go.kr/planweb/board'
     ]
-    scrap_board(url_jeonju_noti[0], url_jeonju_noti[1], url_jeonju_noti[2], url_jeonju_noti[3])
+    scrap_board(url_jeonju[0], url_jeonju[1], url_jeonju[2], url_jeonju[3])
 
     # 현재시간 구하기
     now = datetime.datetime.now()
