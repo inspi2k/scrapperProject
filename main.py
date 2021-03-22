@@ -4,10 +4,6 @@ import os.path
 import telegram
 from time import sleep
 import datetime
-from apscheduler.schedulers.blocking import BlockingScheduler
-
-# logging.basicConfig()
-sched = BlockingScheduler()
 
 # 전주시청 게시판 스크래핑
 def scrap_board(
@@ -108,13 +104,29 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
-@sched.scheduled_job('interval', minutes=1)
-def timed_job():
-    global bot
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
 
-    # print("Testing interval scheduled job")
+    # telegram token, channel check
+    with open('token.txt', 'r') as fp:
+        try:
+            lines = fp.readlines()
+        except FileNotFoundError:
+            print('\'token.txt\' file not found.')
+            exit(1)
+        try:
+            bot_token = lines[0].strip()
+            bot_channel = lines[1].strip()
+        except IndexError:
+            print('Check file. \'token.txt\'')
+            exit(1)
 
-    # 전주시 새소식
+        if bot_token == '' or bot_channel == '':
+            print('Check token or channel information.')
+            exit(1)
+
+    bot = telegram.Bot(bot_token)
+
     url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
         '전주시 새소식',
@@ -140,28 +152,3 @@ def timed_job():
     message = f'수행중 {nowDatetime}'
     bot.sendMessage(bot_channel, message)
     print(message)
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-
-    # telegram token, channel check
-    with open('token.txt', 'r') as fp:
-        try:
-            lines = fp.readlines()
-        except FileNotFoundError:
-            print('\'token.txt\' file not found.')
-            exit(1)
-        try:
-            bot_token = lines[0].strip()
-            bot_channel = lines[1].strip()
-        except IndexError:
-            print('Check file. \'token.txt\'')
-            exit(1)
-
-        if bot_token == '' or bot_channel == '':
-            print('Check token or channel information.')
-            exit(1)
-
-    bot = telegram.Bot(bot_token)
-
-    sched.start()
