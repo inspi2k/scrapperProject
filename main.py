@@ -167,3 +167,5 @@ if __name__ == '__main__':
     BOT_MSG_LIMIT = 20  # 20 msgs per minute to the same group
     BOT_MSG_SLEEP = 60
     bot_msg_count = 0
+
+    sched.start()
