@@ -120,7 +120,7 @@ def send_message(message):
     bot_msg_count += 1
     bot.sendMessage(TELEGRAM_CHANNEL, message, parse_mode='Markdown', disable_web_page_preview=True)
 
-@sched.scheduled_job('interval', minutes=30)
+@sched.scheduled_job('interval', minutes=60)
 def timed_job():
     global bot
     global bot_msg_count
