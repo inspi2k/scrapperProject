@@ -119,6 +119,7 @@ def scrap_board(
 @sched.scheduled_job('interval', minutes=10)
 def timed_job():
     global bot
+    global bot_msg_count
 
     url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
