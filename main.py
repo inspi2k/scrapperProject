@@ -116,7 +116,7 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', minutes=30)
 def timed_job():
     global bot
     global bot_msg_count
@@ -151,7 +151,7 @@ def timed_job():
         print('waiting a minute.')
         sleep(BOT_MSG_SLEEP)
     bot_msg_count += 1
-    bot.sendMessage(TELEGRAM_CHANNEL, message)
+    # bot.sendMessage(TELEGRAM_CHANNEL, message)
     print(message)
 
 # Press the green button in the gutter to run the script.
