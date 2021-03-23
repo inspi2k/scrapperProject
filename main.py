@@ -5,7 +5,10 @@ import telegram
 from time import sleep
 import datetime
 import dotenv
+from apscheduler.schedulers.blocking import BlockingScheduler
 
+# logging.basicConfig()
+sched = BlockingScheduler()
 
 # 전주시청 게시판 스크래핑
 def scrap_board(
@@ -78,10 +81,11 @@ def scrap_board(
             if (num == recent_no) or (recent_break == True):
                 # print(f'latest={str(latest_no)}, num={str(num)}, recent={str(recent_no)}')
                 print(f'{title_scrap} / {scrap_count}개의 게시글을 가져왔습니다.')
-                # file-based 에서 환경변수 config var 로 변경
-                os.environ[config_vars_latest] = str(latest_no)
-                dotenv.set_key(dotenv_file, config_vars_latest, os.environ[config_vars_latest])
-                os.system('heroku config:set ' + config_vars_latest + '=' + os.environ[config_vars_latest])
+                if scrap_count > 0:
+                    # file-based 에서 환경변수 config var 로 변경
+                    os.environ[config_vars_latest] = str(latest_no)
+                    dotenv.set_key(dotenv_file, config_vars_latest, os.environ[config_vars_latest])
+                    os.system('heroku config:set ' + config_vars_latest + '=' + os.environ[config_vars_latest])
                 recent_break = True
                 break
 
@@ -112,26 +116,10 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
+@sched.scheduled_job('interval', minutes=10)
+def timed_job():
+    global bot
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-
-    dotenv_file = dotenv.find_dotenv()
-    dotenv.load_dotenv(dotenv_file, verbose=True)
-
-    TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
-    TELEGRAM_CHANNEL = os.getenv('TELEGRAM_CHANNEL')
-
-    bot = telegram.Bot(TELEGRAM_TOKEN)
-
-    BOT_MSG_LIMIT = 20  # 20 msgs per minute to the same group
-    BOT_MSG_SLEEP = 60
-    bot_msg_count = 0
-    '''
-    keys = os.environ.keys()
-    for item in keys:
-        print('%s=%s' %(item, os.environ[item]))
-    '''
     url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
         '전주시 새소식',
@@ -161,6 +149,21 @@ if __name__ == '__main__':
         print('bot will not be able to send more than 20 messages per minute to the same group.')
         print('waiting a minute.')
         sleep(BOT_MSG_SLEEP)
-    # bot_msg_count += 1
-    # bot.sendMessage(TELEGRAM_CHANNEL, message)
+    bot_msg_count += 1
+    bot.sendMessage(TELEGRAM_CHANNEL, message)
     print(message)
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+
+    dotenv_file = dotenv.find_dotenv()
+    dotenv.load_dotenv(dotenv_file, verbose=True)
+
+    TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+    TELEGRAM_CHANNEL = os.getenv('TELEGRAM_CHANNEL')
+
+    bot = telegram.Bot(TELEGRAM_TOKEN)
+
+    BOT_MSG_LIMIT = 20  # 20 msgs per minute to the same group
+    BOT_MSG_SLEEP = 60
+    bot_msg_count = 0
