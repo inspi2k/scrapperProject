@@ -99,14 +99,7 @@ def scrap_board(
             print(f'[{str(num)}]{date}/{title}({author})')
             # 시간(번호)순으로 할 때 역순으로 출력해야 하지만 주기적으로 실행하면 게시글을 많이 가져오지 않으므로 그냥 출력
 
-            # print(f'BOT_MSG_LIMIT={BOT_MSG_LIMIT},BOT_MSG_SLEEP={BOT_MSG_SLEEP},bot_msg_count={bot_msg_count},scrap_count={scrap_count}')
-            if (bot_msg_count >= BOT_MSG_LIMIT) and (bot_msg_count % BOT_MSG_LIMIT) == 0:
-                print('My bot will not be able to send more than 20 messages per minute to the same group.')
-                print('Waiting a minute.')
-                sleep(BOT_MSG_SLEEP)
-
-            bot.sendMessage(TELEGRAM_CHANNEL, message, parse_mode='Markdown', disable_web_page_preview=True)
-            bot_msg_count += 1
+            send_message(message)
             scrap_count += 1
 
         # 반복문이 다 끝나더라도 최신 게시글이 안 나왔으면
@@ -116,11 +109,23 @@ def scrap_board(
         else:
             page_num += 1  # 다음페이지의 게시글을 스크래핑 해 오기 위해 페이지번호 설정
 
+def send_message(message):
+    global bot_msg_count, BOT_MSG_SLEEP, BOT_MSG_LIMIT, TELEGRAM_CHANNEL, bot
+
+    # print(f'BOT_MSG_LIMIT={BOT_MSG_LIMIT},BOT_MSG_SLEEP={BOT_MSG_SLEEP},bot_msg_count={bot_msg_count}')
+    if (bot_msg_count >= BOT_MSG_LIMIT) and (bot_msg_count % BOT_MSG_LIMIT) == 0:
+        print('bot will not be able to send more than 20 messages per minute to the same group.')
+        print('waiting a minute.')
+        sleep(BOT_MSG_SLEEP)
+    bot_msg_count += 1
+    bot.sendMessage(TELEGRAM_CHANNEL, message, parse_mode='Markdown', disable_web_page_preview=True)
+
 @sched.scheduled_job('interval', minutes=30)
 def timed_job():
     global bot
     global bot_msg_count
 
+    # 전주시 새소식
     url_jeonju = [
         '/list.9is?boardUid=9be517a74f8dee91014f90e8502d0602&page=',
         '전주시 새소식',
@@ -140,18 +145,11 @@ def timed_job():
     ]
     scrap_board(url_jeonju[0], url_jeonju[1], url_jeonju[2], url_jeonju[3])
 
-    # 현재시간 구하기
+    # 현재시간 구해서 실행중인 메시지 보여주기
     now = datetime.datetime.now()
     nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
     message = f'수행중 {nowDatetime}'
 
-    # print(f'BOT_MSG_LIMIT={BOT_MSG_LIMIT},BOT_MSG_SLEEP={BOT_MSG_SLEEP},bot_msg_count={bot_msg_count}')
-    if (bot_msg_count >= BOT_MSG_LIMIT) and (bot_msg_count % BOT_MSG_LIMIT) == 0:
-        print('bot will not be able to send more than 20 messages per minute to the same group.')
-        print('waiting a minute.')
-        sleep(BOT_MSG_SLEEP)
-    bot_msg_count += 1
-    # bot.sendMessage(TELEGRAM_CHANNEL, message)
     print(message)
 
 # Press the green button in the gutter to run the script.
